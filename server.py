@@ -2,7 +2,6 @@
 """
 @author: Sebastian Riedel <sriedel@suse.com>
 """
-import json
 import argparse
 from flask import Flask, request, jsonify
 import torch
@@ -159,4 +158,5 @@ def classify():
     return jsonify(data)
 
 
-app.run(host="0.0.0.0", port=args.port)
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=args.port)

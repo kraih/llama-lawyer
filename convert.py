@@ -76,22 +76,6 @@ def load_dump(fn):
     return f.read()
 
 
-def main():
-    args = get_args()
-
-    input = args.input
-    output = args.output
-    format = args.format
-    limit = args.limit
-
-    if format == "alpaca":
-        output_alpaca(input, output, limit)
-    elif format == "cavil":
-        output_cavil(input, output, limit)
-    elif format == "datasets":
-        output_datasets(input, output, limit)
-
-
 def output_alpaca(input, output, limit):
     records = []
     for fn in get_files(input, "bad", limit):
@@ -142,4 +126,17 @@ def output_datasets(input, output, limit):
             append_snippet(f, load_dump(fn), True)
 
 
-main()
+if __name__ == "__main__":
+    args = get_args()
+
+    input = args.input
+    output = args.output
+    format = args.format
+    limit = args.limit
+
+    if format == "alpaca":
+        output_alpaca(input, output, limit)
+    elif format == "cavil":
+        output_cavil(input, output, limit)
+    elif format == "datasets":
+        output_datasets(input, output, limit)
