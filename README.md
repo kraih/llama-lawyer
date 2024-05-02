@@ -29,7 +29,7 @@ You need:
 ```bash
 # Install dependencies
 python -m venv .venv
-python -m pip install -r requirements.txt
+./.venv/bin/python -m pip install -r requirements.txt
 
 # Convert full LegalDB training data to alpaca format (ready for upload to HF)
 ./.venv/bin/python convert.py -i legaldb-ml-data -o data.json -f alpaca
