@@ -40,7 +40,7 @@ python -m venv .venv
 # Test to get a base accuracy (already 75% for Llama-3-8B)
 ./.venv/bin/python test.py -i legaldb-ml-data-small.jsonl -m /tmp/Meta-Llama-3-8B-Instruct
 
-# Fine-tune Llama-3 with LegalDB training data (takes about 8 hours with an RTX 4090)
+# Fine-tune Llama-3 with torchtune and LegalDB training data (takes about 8 hours with an RTX 4090)
 ./.venv/bin/tune run lora_finetune_single_device --config torchtune.yaml dataset.source=kraih/legaldb-training-full-0.1
 
 # HACK: Convert Llama-3 checkpoint to a format transformers will accept
