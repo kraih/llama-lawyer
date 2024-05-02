@@ -55,5 +55,5 @@ cp /tmp/Meta-Llama-8B-Instruct/meta_model_0.pt /tmp/Meta-Llama-3-8B-Instruct/ori
 ./.venv/bin/python server.py -p 5000 -m /tmp/Meta-Llama-3-8B-Instruct-Cavil-hf
 
 # Verify server works properly, expected result: {"license":true, "confidence":"92.39"}
-curl -X POST --data 'MIT license' http://127.0.0.1:5000
+curl -X POST --data '# MIT License' http://127.0.0.1:5000
 ```
