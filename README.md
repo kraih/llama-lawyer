@@ -22,7 +22,7 @@ You need:
 
 1. A checkout of this repo.
 2. Copy of the [Meta-Llama-3-8B-Instruct](https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct) base model.
-3. And the not yet open sourced 150.000 samples of training data from the SUSE production instance of Cavil. Sorry!
+3. Copy of our 150.000 samples of [training data](https://huggingface.co/datasets/openSUSE/cavil-legal-text)
 
 ## Process
 
@@ -41,7 +41,7 @@ python -m venv .venv
 ./.venv/bin/python test.py -i legaldb-ml-data-small.jsonl -m /tmp/Meta-Llama-3-8B-Instruct
 
 # Fine-tune Llama-3 with torchtune and LegalDB training data (takes about 8 hours with an RTX 4090)
-./.venv/bin/tune run lora_finetune_single_device --config torchtune.yaml dataset.source=kraih/legaldb-training-full-0.1
+./.venv/bin/tune run lora_finetune_single_device --config torchtune.yaml dataset.source=openSUSE/cavil-legal-text
 
 # HACK: Convert Llama-3 checkpoint to a format transformers will accept
 # (see https://github.com/pytorch/torchtune/issues/832 for more)
