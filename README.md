@@ -22,7 +22,7 @@ You need:
 
 1. A checkout of this repo.
 2. Copy of the [Meta-Llama-3-8B-Instruct](https://huggingface.co/meta-llama/Meta-Llama-3-8B-Instruct) base model.
-3. Copy of our 150.000 samples of [training data](https://huggingface.co/datasets/openSUSE/cavil-legal-text)
+3. Copy of our 150.000 samples of [training data](https://huggingface.co/datasets/openSUSE/cavil-legal-text).
 
 ## Process
 
