@@ -17,8 +17,8 @@ text that was written with the intention of describing how the code should be us
 )
 
 
-def append_snippet(f, snippet, is_legal_text):
-    f.write(json.dumps({"snippet": snippet, "is_legal_text": is_legal_text}) + "\n")
+def append_snippet(f, snippet, is_legal_text, unique_id):
+    f.write(json.dumps({"snippet": snippet, "is_legal_text": is_legal_text, "unique_id": unique_id}) + "\n")
 
 
 def get_args():
@@ -63,6 +63,10 @@ def get_files(input, type, limit):
     if limit != None:
         files = files[:limit]
     return sorted(files)
+
+
+def get_unique_id(fn):
+    return os.path.basename(fn).split(".")[0]
 
 
 def load_dump(fn):
@@ -120,10 +124,10 @@ def output_cavil(input, output, limit):
 def output_datasets(input, output, limit):
     with open(output, "a") as f:
         for fn in get_files(input, "bad", limit):
-            append_snippet(f, load_dump(fn), False)
+            append_snippet(f, load_dump(fn), False, get_unique_id(fn))
 
         for fn in get_files(input, "good", limit):
-            append_snippet(f, load_dump(fn), True)
+            append_snippet(f, load_dump(fn), True, get_unique_id(fn))
 
 
 if __name__ == "__main__":
