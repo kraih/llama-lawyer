@@ -9,7 +9,7 @@ import shutil
 
 def get_args():
     parser = argparse.ArgumentParser(
-        "Revert dataset back to LegalDB training data format (lossy)"
+        "Revert dataset back to LegalDB training data format"
     )
     parser.add_argument(
         "-i",
