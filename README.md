@@ -1,4 +1,4 @@
-# Llama-Lawyer Experiment
+# LLM-Lawyer Experiment
 
 This is a collection of tools and config files we use to fine-tune, benchmark and deploy Llama-3 as a text classifier
 for [Cavil](https://github.com/openSUSE/cavil).
