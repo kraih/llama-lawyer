@@ -31,6 +31,9 @@ You need:
 python -m venv .venv
 ./.venv/bin/python -m pip install -r requirements.txt
 
+# Convert downloaded Cavil training data back into LegalDB format
+./.venv/bin/python revert.py -i legal_text.jsonl -o legaldb-ml-data
+
 # Convert full LegalDB training data to alpaca format (ready for upload to HF)
 ./.venv/bin/python convert.py -i legaldb-ml-data -o data.json -f alpaca
 
@@ -41,7 +44,7 @@ python -m venv .venv
 ./.venv/bin/python test.py -i legaldb-ml-data-small.jsonl -m /tmp/Meta-Llama-3-8B-Instruct
 
 # Fine-tune Llama-3 with torchtune and LegalDB training data (takes about 8 hours with an RTX 4090)
-./.venv/bin/tune run lora_finetune_single_device --config torchtune.yaml dataset.source=openSUSE/cavil-legal-text
+./.venv/bin/tune run lora_finetune_single_device --config torchtune.yaml dataset.source=kraih/legaldb-training-data
 
 # HACK: Convert Llama-3 checkpoint to a format transformers will accept
 # (see https://github.com/pytorch/torchtune/issues/832 for more)
